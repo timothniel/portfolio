@@ -22,13 +22,26 @@ function renderProfile() {
   document.getElementById("heroName").textContent = PROFILE.name;
   document.getElementById("heroRole").textContent = PROFILE.title;
   document.getElementById("heroSchool").textContent = PROFILE.school;
-  document.getElementById("heroBio").textContent = PROFILE.bio;
+  document.getElementById("heroHeadline").textContent = PROFILE.headline;
+
+  const bio = document.getElementById("heroBio");
+  bio.innerHTML = "";
+  [].concat(PROFILE.bio).forEach((text) => {
+    const p = document.createElement("p");
+    p.textContent = text;
+    bio.appendChild(p);
+  });
+
+  document.getElementById("heroStats").innerHTML = (PROFILE.stats || [])
+    .map(
+      (s) => `<li class="stat-tile">
+        <span class="stat-value">${s.value}${s.suffix ? `<small>${s.suffix}</small>` : ""}</span>
+        <span class="stat-label">${s.label}</span>
+      </li>`
+    )
+    .join("");
   document.getElementById("fallbackInitials").textContent = initialsOf(PROFILE.name);
   document.getElementById("cvLink").href = PROFILE.cvUrl;
-
-  document.getElementById("heroTags").innerHTML = PROFILE.tags
-    .map((tag) => `<span>${tag}</span>`)
-    .join("");
 
   const linkedin = document.getElementById("linkedinLink");
   linkedin.href = PROFILE.linkedin;
