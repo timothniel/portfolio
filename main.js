@@ -9,6 +9,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   renderProfile();
+  renderSkills();
   renderProjectCards();
   renderExperience();
   renderCertificates();
@@ -67,6 +68,43 @@ function initialsOf(fullName) {
     .slice(0, 2)
     .map((part) => part[0].toUpperCase())
     .join("");
+}
+
+/* ---------- Skills & tools ---------- */
+function renderSkills() {
+  const grid = document.getElementById("skillGrid");
+  if (!grid || typeof SKILLS === "undefined") return;
+
+  const scale = document.getElementById("skillScale");
+  if (scale && typeof SKILL_SCALE !== "undefined") {
+    scale.innerHTML = SKILL_SCALE.map(
+      (s) => `<div><dt>${skillDots(s.level)}<span>${s.level}/5 ${s.label}</span></dt><dd>${s.meaning}</dd></div>`
+    ).join("");
+  }
+
+  grid.innerHTML = SKILLS.map(
+    (group) => `
+      <section class="skill-card">
+        <h3 class="mono-heading">${group.category}</h3>
+        <ul>
+          ${group.items
+            .map(
+              (item) => `
+            <li>
+              <span class="skill-name">${item.name}</span>
+              <span class="skill-level">${skillDots(item.level)}<span class="skill-score">${item.level}/5</span></span>
+            </li>`
+            )
+            .join("")}
+        </ul>
+      </section>`
+  ).join("");
+}
+
+/* Five dots, filled up to the level. Shared look with project.js. */
+function skillDots(level) {
+  const dots = Array.from({ length: 5 }, (_, i) => `<i class="${i < level ? "on" : ""}"></i>`).join("");
+  return `<span class="dots" role="img" aria-label="Level ${level} of 5">${dots}</span>`;
 }
 
 /* ---------- Projects grid ---------- */
