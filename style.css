@@ -230,42 +230,47 @@ hr {
 }
 
 /* ============================================================
-   HERO
+   HERO / ABOUT
    ============================================================ */
 .hero {
   background: var(--paper);
-  padding: 86px 0px 96px;
+  padding: 96px 0 108px;
 }
 
 .hero > .container {
-  max-width: 1340px;
+  max-width: 1240px;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 360px 1fr;
-  gap: 56px;
-  align-items: start;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: clamp(48px, 6vw, 88px);
+  align-items: center;
 }
 
+/* Left: polaroid + identity, centred as one block */
 .hero-photo-col {
-  display: grid;
-  gap: 20px;
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .polaroid {
+  width: 100%;
   background: var(--white);
+  padding: 14px 14px 54px;
+  border-radius: 6px;
   border: 1px solid var(--line);
-  box-shadow: 0px 16px 34px rgba(0, 0, 0, 0.08);
-  padding: 16px 16px 56px;
-  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 22px 44px -16px rgba(0, 0, 0, 0.22);
+  transform: rotate(-2deg);
 }
 
 .polaroid-photo {
   width: 100%;
   aspect-ratio: 1 / 1;
-  background: var(--gray-300);
+  background: #e6e7e4;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -292,54 +297,52 @@ hr {
   font-weight: 700;
 }
 
-.photo-fallback .hint {
-  font-size: 0.7rem;
-  max-width: 16ch;
-  text-align: center;
-  line-height: 1.4;
-}
-
-.hero-info {
-  padding-top: 52px;
-}
-
 .hero-id {
-  text-align: center;
-  margin-top: 18px;
+  margin-top: 30px;
 }
 
 .hero-name {
-  font-size: clamp(1.3rem, 1.9vw, 1.5rem);
+  font-size: 1.45rem;
   line-height: 1.25;
+  letter-spacing: -0.01em;
 }
 
 .hero-role {
   margin-top: 10px;
   font-weight: 600;
   font-size: 0.9rem;
+  white-space: nowrap;
+  color: var(--black);
 }
 
 .hero-school {
-  margin-top: 4px;
-  font-size: 0.9rem;
+  margin-top: 3px;
+  font-size: 0.88rem;
   color: var(--gray-700);
 }
 
+/* Right: headline, story, highlights */
+.hero-info {
+  max-width: 760px;
+}
+
 .hero-headline {
-  font-size: clamp(1.35rem, 2.3vw, 1.65rem);
-  line-height: 1.3;
+  font-size: clamp(1.6rem, 2.5vw, 2.05rem);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
 }
 
 .hero-bio {
-  margin-top: 18px;
-  max-width: 860px;
-  color: #2a2a2a;
-  font-size: 15.5px;
-  line-height: 1.55;
+  margin-top: 24px;
+  max-width: 68ch;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #444;
 }
 
-.hero-bio p {
-  text-align: justify;
+.hero-bio p:first-child {
+  color: #1c1c1c;
 }
 
 .hero-bio p + p {
@@ -348,53 +351,88 @@ hr {
 
 .hero-stats {
   list-style: none;
-  margin: 26px 0 0;
+  margin: 34px 0 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 10px;
+  max-width: 720px;
 }
 
 .stat-tile {
-  flex: 1 1 0;
-  min-width: 118px;
-  max-width: 140px;
-  min-height: 92px;
-  padding: 12px 8px;
-  background: #2e2e2e;
-  border: 4px solid var(--black);
-  border-radius: 10px;
+  min-height: 98px;
+  padding: 14px 8px;
+  background: #2b2b2b;
+  border: 3px solid var(--black);
+  border-radius: 12px;
   color: var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 4px;
+  gap: 6px;
 }
 
 .stat-value {
-  font-size: 1.45rem;
+  font-size: 1.55rem;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1;
+  letter-spacing: -0.01em;
 }
 
 .stat-value small {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 500;
+  color: #bdbdbd;
+  margin-left: 1px;
 }
 
 .stat-label {
-  font-size: 0.82rem;
-  line-height: 1.25;
-  color: #e9e9e9;
+  font-size: 0.78rem;
+  line-height: 1.3;
+  color: #d6d6d6;
 }
 
 .hero-actions {
-  margin-top: 30px;
+  margin-top: 34px;
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+@media (max-width: 960px) {
+  .hero {
+    padding: 64px 0 80px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .polaroid {
+    width: 280px;
+  }
+
+  .hero-info {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-role {
+    white-space: normal;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-stats .stat-tile:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 /* ============================================================
@@ -1186,23 +1224,6 @@ a.shot-frame:hover img {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-photo-col {
-    justify-items: center;
-    text-align: center;
-  }
-
-  .polaroid {
-    width: 280px;
-  }
-
-  .hero-info {
-    padding-top: 8px;
-  }
-
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1252,22 +1273,5 @@ a.shot-frame:hover img {
 
   .exp-company {
     align-items: flex-start;
-  }
-}
-
-@media (max-width: 620px) {
-  .hero-bio p {
-    text-align: left;
-  }
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .stat-tile {
-    max-width: none;
-    min-width: 0;
-  }
-  .hero-stats .stat-tile:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
   }
 }
