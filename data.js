@@ -201,7 +201,6 @@ const PROJECTS = [
     ],
     links: [
       { label: "View prototype", url: "https://bit.ly/PrototypeExcelsiorKINDITECHNO" },
-      { label: "Figma workspace", url: "https://bit.ly/WorkspaceExcelsiorITECHNO" },
     ],
     liveUrl: "",
     repoUrl: "",
@@ -240,9 +239,7 @@ const PROJECTS = [
       { src: "", caption: "Smart Matching for HR" },
     ],
     links: [
-      { label: "Figma prototype", url: "https://bit.ly/SkillFuelFigma" },
-      { label: "Task flow", url: "https://bit.ly/SkillFuelTaskFlow" },
-      { label: "SUS results", url: "https://bit.ly/SkillFuelSUSCalculation" },
+      { label: "View prototype", url: "https://www.figma.com/proto/FirIQy2k7T1r7m1OBfak7J/Hackfest-Raja-Guk-Guk?node-id=448-5110&page-id=0%3A1&starting-point-node-id=448%3A5110&scaling=scale-down&content-scaling=fixed&show-proto-sidebar=1" },
     ],
     liveUrl: "",
     repoUrl: "",
