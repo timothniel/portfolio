@@ -22,10 +22,22 @@
 const PROFILE = {
   name: "Timothy Othniel Wahyudi",
   title: "Master Track Information Systems Management",
-  school: "BINUS University | GPA 3.95 / 4.00 | Jakarta, Indonesia",
-  bio:
-    "I’m an Information Systems (Master Track) student at BINUS University, recognized in the top 5% of the School of Information Systems. I turn messy business problems into clear requirements, data models and working designs, using SQL, Excel Power Pivot, BPMN/UML and Figma, with foundational SAP S/4HANA and Oracle NetSuite knowledge. Three-time competition finalist in 2026, including the Top 40 of the Agentic AI University Hackathon, part-time IS Lab Assistant, and project lead for a ±60-person student team.",
-  tags: ["Functional Consultant", "Business Analyst", "System Analyst"],
+  school: "BINUS University | Jakarta, Indonesia",
+  headline: "Turning business problems into systems that work",
+  // Each string is one paragraph in the About section.
+  bio: [
+    "I’m an Information Systems (Master Track) student at BINUS University with a 3.95/4.00 GPA, recognised among the top 5% of the School of Information Systems. I enjoy the space between business and technology: understanding how a process really works, then shaping the requirements, data and design that make it work better.",
+    "My toolkit spans SQL and database design, Excel analytics with Power Query and Power Pivot, process and system modelling in BPMN and UML, and UI/UX prototyping in Figma, with foundational SAP S/4HANA and Oracle NetSuite knowledge. In 2026 I reached the finals of three competitions, from dementia care and career readiness to an agentic AI system for drug procurement.",
+    "Outside class, I teach Database Fundamentals and UX lab sessions to ~90 students as an IS Lab Assistant, mentor fellow students through Duta Binusian, and have led teams of up to ±60 people in HIMSISFO. I’m looking for an internship where I can learn fast and contribute from day one.",
+  ],
+  // Highlight tiles under the About text. "suffix" is optional (shown smaller).
+  stats: [
+    { value: "3.95", suffix: "/4.00", label: "GPA" },
+    { value: "8", label: "Organizational Roles" },
+    { value: "4+", label: "Competitions" },
+    { value: "3", label: "Academic Awards" },
+    { value: "~90", label: "Students Taught" },
+  ],
   cvUrl: "assets/CV.pdf",
   linkedin: "https://linkedin.com/in/timothyothnielwahyudi",
   email: "timothy.wahyudi@binus.ac.id",
