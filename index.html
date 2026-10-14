@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Timothy's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ===================== NAV ===================== -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" id="brandName">Timothy's Portfolio</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#achievements">Achievements</a>
+      </nav>
+      <a href="#contact" class="btn-pill-invert">Contact</a>
+    </div>
+  </header>
+
+  <!-- ===================== HERO / ABOUT ===================== -->
+  <section class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-photo-col" id="about">
+        <div class="polaroid">
+          <div class="polaroid-photo">
+            <!--
+              Drop your photo in assets/profile.jpg and it'll show here
+              automatically. Until then, a placeholder with your initials
+              is shown.
+            -->
+            <img
+              src="assets/Profile.jpg"
+              alt=""
+              id="profileImg"
+              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
+            />
+            <div class="photo-fallback" id="photoFallback" style="display:none;">
+              <span class="initials" id="fallbackInitials">TW</span>
+              <span class="hint">Add assets/profile.jpg to replace this</span>
+            </div>
+          </div>
+        </div>
+        <a href="assets/CV.pdf" class="btn-solid" id="cvLink" download>Download Full CV</a>
+      </div>
+
+      <div class="hero-info">
+        <h1 class="mono-heading" id="heroName">Timothy Othniel Wahyudi</h1>
+        <p class="hero-role" id="heroRole">Master Track Information Systems Management</p>
+        <p class="hero-school" id="heroSchool">BINUS University | Jakarta, Indonesia</p>
+        <p class="hero-bio" id="heroBio">
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-outline">Explore My Projects</a>
+        </div>
+        <p class="hero-tags" id="heroTags"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROJECTS ===================== -->
+  <section class="section-block" id="projects">
+    <div class="container">
+      <p class="mono-heading section-title">My Projects</p>
+      <p class="section-sub">Competition entries and course projects across business analysis, system design, data and UI/UX</p>
+      <!-- Rendered by js/main.js from PROJECTS in js/data.js -->
+      <div class="project-grid" id="projectGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== EXPERIENCE ===================== -->
+  <section class="section-block" id="experience" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <p class="mono-heading section-title">My Experiences</p>
+      <p class="section-sub">Teaching, mentoring, leadership and work experience</p>
+      <!-- Rendered by js/main.js from EXPERIENCE in js/data.js -->
+      <div id="experienceList"></div>
+    </div>
+  </section>
+
+  <!-- ===================== ACHIEVEMENTS & CERTIFICATIONS ===================== -->
+  <section class="section-block" id="achievements" style="border-top:1px solid var(--line);">
+    <div class="container">
+      <p class="mono-heading section-title">Achievements &amp; Certifications</p>
+      <p class="section-sub">Awards, competition results, training and recognition. Click a card to see the full certificate.</p>
+      <!-- Rendered by main.js from CERTIFICATES in data.js -->
+      <div class="filter-bar" id="certFilters" role="group" aria-label="Filter certificates"></div>
+      <div class="project-grid cert-grid" id="certGrid"></div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / FOOTER ===================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-eyebrow">My personal goal is to</p>
+        <h2 class="footer-headline">Leveraging Skills<br />Creating Impact.</h2>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-item">
+          <p class="footer-label">LinkedIn</p>
+          <a class="footer-value" id="linkedinLink" href="https://www.linkedin.com/in/timothyothnielwahyudi/" target="_blank" rel="noopener">linkedin.com/in/timothyothnielwahyudi</a>
+        </div>
+        <div class="footer-item">
+          <p class="footer-label">E-mail</p>
+          <a class="footer-value" id="emailLink" href="#">timothy.wahyudi@binus.ac.id</a>
+        </div>
+        <div class="footer-item">
+          <p class="footer-label">WhatsApp</p>
+          <a class="footer-value" id="phoneLink" href="https://wa.me/6285156275425">+62 851 5627 5425</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <div class="bottom-bar" id="bottomBar">
+    <p class="bottom-bar" id="text">© 2026 Timothy Othniel Wahyudi</p>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
