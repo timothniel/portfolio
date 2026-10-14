@@ -36,36 +36,32 @@
       <div class="hero-photo-col" id="about">
         <div class="polaroid">
           <div class="polaroid-photo">
-            <!--
-              Drop your photo in assets/profile.jpg and it'll show here
-              automatically. Until then, a placeholder with your initials
-              is shown.
-            -->
             <img
               src="assets/Profile.jpg"
-              alt=""
+              alt="Portrait of Timothy Othniel Wahyudi"
               id="profileImg"
               onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
             />
             <div class="photo-fallback" id="photoFallback" style="display:none;">
               <span class="initials" id="fallbackInitials">TW</span>
-              <span class="hint">Add assets/profile.jpg to replace this</span>
             </div>
           </div>
         </div>
-        <a href="assets/CV.pdf" class="btn-solid" id="cvLink" download>Download Full CV</a>
+        <div class="hero-id">
+          <h1 class="mono-heading hero-name" id="heroName">Timothy Othniel Wahyudi</h1>
+          <p class="hero-role" id="heroRole">Master Track Information Systems Management</p>
+          <p class="hero-school" id="heroSchool">BINUS University | Jakarta, Indonesia</p>
+        </div>
       </div>
 
       <div class="hero-info">
-        <h1 class="mono-heading" id="heroName">Timothy Othniel Wahyudi</h1>
-        <p class="hero-role" id="heroRole">Master Track Information Systems Management</p>
-        <p class="hero-school" id="heroSchool">BINUS University | Jakarta, Indonesia</p>
-        <p class="hero-bio" id="heroBio">
-        </p>
+        <h2 class="mono-heading hero-headline" id="heroHeadline">Turning business problems into systems that work</h2>
+        <div class="hero-bio" id="heroBio"></div>
+        <ul class="hero-stats" id="heroStats" aria-label="Highlights"></ul>
         <div class="hero-actions">
+          <a href="assets/CV.pdf" class="btn-solid" id="cvLink" download>Download Full CV</a>
           <a href="#projects" class="btn-outline">Explore My Projects</a>
         </div>
-        <p class="hero-tags" id="heroTags"></p>
       </div>
     </div>
   </section>
