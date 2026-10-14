@@ -74,6 +74,7 @@ function renderProject(project) {
           ${project.highlights.map((h) => `<li>${h}</li>`).join("")}
         </ul>
       </div>
+      ${renderSkillsApplied(project)}
       <div class="detail-actions">
         ${project.liveUrl ? `<a class="btn-solid" href="${project.liveUrl}" target="_blank" rel="noopener">View live</a>` : ""}
         ${project.repoUrl ? `<a class="btn-outline" href="${project.repoUrl}" target="_blank" rel="noopener">View code</a>` : ""}
@@ -83,6 +84,29 @@ function renderProject(project) {
 
     ${renderScreenshots(project)}
   `;
+}
+
+/* Skills used on this project, with the same 1–5 level as the Skills section */
+function renderSkillsApplied(project) {
+  const names = project.skills || [];
+  if (!names.length || typeof SKILLS === "undefined") return "";
+  const levels = new Map(SKILLS.flatMap((g) => g.items.map((i) => [i.name, i.level])));
+
+  return `
+      <div>
+        <h2>Skills applied</h2>
+        <p class="skills-note">Level out of 5, matching the <a href="index.html#skills">Skills &amp; Tools</a> ratings</p>
+        <ul class="skill-chips">
+          ${names
+            .filter((n) => levels.has(n))
+            .map((n) => {
+              const level = levels.get(n);
+              const dots = Array.from({ length: 5 }, (_, i) => `<i class="${i < level ? "on" : ""}"></i>`).join("");
+              return `<li>${n}<span class="dots" role="img" aria-label="Level ${level} of 5">${dots}</span><span class="skill-score">${level}/5</span></li>`;
+            })
+            .join("")}
+        </ul>
+      </div>`;
 }
 
 function renderScreenshots(project) {
