@@ -44,9 +44,86 @@ const PROFILE = {
   phone: "+62 851 5627 5425",
 };
 
+/*
+  SKILLS powers the "Skills & Tools" section. Levels are 1–5 (see SKILL_SCALE).
+  Projects list the skills they used by name in their "skills" field, and the
+  level is looked up here, so each skill has one rating everywhere on the site.
+*/
+const SKILL_SCALE = [
+  { level: 5, label: "Expert", meaning: "taught it or led it in competitions" },
+  { level: 4, label: "Advanced", meaning: "applied confidently across projects" },
+  { level: 3, label: "Intermediate", meaning: "project design or coursework" },
+];
+
+const SKILLS = [
+  {
+    category: "Business & Systems Analysis",
+    items: [
+      { name: "Requirements analysis", level: 5 },
+      { name: "Use case & UML", level: 5 },
+      { name: "DFD & context diagrams", level: 5 },
+      { name: "Fishbone analysis", level: 4 },
+      { name: "BPMN", level: 4 },
+      { name: "Visual Paradigm", level: 4 },
+    ],
+  },
+  {
+    category: "Data & Databases",
+    items: [
+      { name: "SQL / MySQL", level: 5 },
+      { name: "ERD & normalisation", level: 5 },
+      { name: "Oracle SQL & APEX", level: 4 },
+      { name: "Excel Power Query", level: 4 },
+      { name: "Power Pivot & DAX", level: 4 },
+      { name: "PivotTables & dashboards", level: 4 },
+    ],
+  },
+  {
+    category: "ERP & Enterprise Systems",
+    items: [
+      { name: "SAP S/4HANA", level: 4 },
+      { name: "Oracle NetSuite", level: 3 },
+      { name: "SAP IBP & Joule", level: 3 },
+      { name: "AWS Bedrock AgentCore", level: 3 },
+    ],
+  },
+  {
+    category: "Design & Development",
+    items: [
+      { name: "Figma prototyping", level: 5 },
+      { name: "Design Thinking", level: 5 },
+      { name: "Wireframes & task flows", level: 5 },
+      { name: "Usability testing (SEQ, SUS)", level: 4 },
+      { name: "HTML, CSS, JavaScript", level: 4 },
+    ],
+  },
+  {
+    category: "Project Management & Leadership",
+    items: [
+      { name: "Teaching & facilitation", level: 5 },
+      { name: "Team leadership (±60 people)", level: 5 },
+      { name: "Agile / Scrum backlog", level: 4 },
+      { name: "WBS & Gantt planning", level: 4 },
+      { name: "Risk planning", level: 4 },
+    ],
+  },
+  {
+    category: "Soft Skills & Languages",
+    items: [
+      { name: "Analytical thinking", level: 5 },
+      { name: "Communication", level: 5 },
+      { name: "Public speaking", level: 5 },
+      { name: "Case analysis", level: 4 },
+      { name: "Bahasa Indonesia (native)", level: 5 },
+      { name: "English", level: 4 },
+    ],
+  },
+];
+
 const PROJECTS = [
   {
     id: "sigap",
+    skills: ["Requirements analysis", "Analytical thinking", "Case analysis", "SAP S/4HANA", "SAP IBP & Joule", "AWS Bedrock AgentCore"],
     title: "SIGAP",
     image: "assets/projects/sigap/thumbnail.jpg",
     eyebrow: "Agentic AI University Hackathon 2026 · Top 40 Finalist",
@@ -83,6 +160,7 @@ const PROJECTS = [
   },
   {
     id: "kind",
+    skills: ["Figma prototyping", "Design Thinking", "Wireframes & task flows", "Requirements analysis", "Usability testing (SEQ, SUS)"],
     title: "KIND",
     image: "assets/projects/kind/thumbnail.jpg",
     eyebrow: "ITECHNOCUP PNJ 2026 · International UI/UX Competition · Finalist",
@@ -130,6 +208,7 @@ const PROJECTS = [
   },
   {
     id: "skillfuel",
+    skills: ["Figma prototyping", "Design Thinking", "Team leadership (±60 people)", "Requirements analysis", "Usability testing (SEQ, SUS)"],
     title: "SkillFuel",
     image: "assets/projects/skillfuel/thumbnail.jpg",
     eyebrow: "HACKFEST UC 2026 · International UI/UX Competition · Finalist",
@@ -170,6 +249,7 @@ const PROJECTS = [
   },
   {
     id: "ventela-d2c",
+    skills: ["Requirements analysis", "Agile / Scrum backlog", "WBS & Gantt planning", "Risk planning", "Fishbone analysis"],
     title: "Ventela D2C",
     image: "assets/projects/ventela-d2c/thumbnail.jpg",
     eyebrow: "Information Systems Project Management · Final Project",
@@ -206,6 +286,7 @@ const PROJECTS = [
   },
   {
     id: "jagotrack",
+    skills: ["Requirements analysis", "Use case & UML", "DFD & context diagrams", "Figma prototyping", "BPMN", "Fishbone analysis"],
     title: "JagoTrack",
     image: "assets/projects/jagotrack/thumbnail.jpg",
     eyebrow: "Information Systems Analysis & Design · Lecture Final Project",
@@ -242,6 +323,7 @@ const PROJECTS = [
   },
   {
     id: "mybca-database",
+    skills: ["ERD & normalisation", "SQL / MySQL", "Requirements analysis", "Analytical thinking"],
     title: "myBCA Database",
     image: "assets/projects/mybca-database/thumbnail.jpg",
     eyebrow: "Data & Information Management · Final Project",
@@ -278,6 +360,7 @@ const PROJECTS = [
   },
   {
     id: "bquick-sales-dashboard",
+    skills: ["Analytical thinking", "Excel Power Query", "Power Pivot & DAX", "PivotTables & dashboards"],
     title: "B-Quick Sales Dashboard",
     image: "assets/projects/bquick-sales-dashboard/thumbnail.jpg",
     eyebrow: "Data Modelling Lab · Final Project",
@@ -314,6 +397,7 @@ const PROJECTS = [
   },
   {
     id: "decathlon-pos-database",
+    skills: ["SQL / MySQL", "ERD & normalisation", "Oracle SQL & APEX"],
     title: "Decathlon Retail & POS DB",
     image: "assets/projects/decathlon-pos-database/thumbnail.jpg",
     eyebrow: "Database Fundamentals · Final Project",
@@ -349,6 +433,7 @@ const PROJECTS = [
   },
   {
     id: "stsport",
+    skills: ["Use case & UML", "DFD & context diagrams", "Requirements analysis", "Figma prototyping", "Fishbone analysis", "Visual Paradigm"],
     title: "StSport",
     image: "assets/projects/stsport/thumbnail.jpg",
     eyebrow: "Information Systems Analysis & Design Lab · Final Project",
@@ -384,6 +469,7 @@ const PROJECTS = [
   },
   {
     id: "social-door",
+    skills: ["Figma prototyping", "Design Thinking", "Wireframes & task flows", "Requirements analysis"],
     title: "Social Door",
     image: "assets/projects/social-door/thumbnail.jpg",
     eyebrow: "User Experience Research & Design · Lecture Final Project",
