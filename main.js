@@ -225,7 +225,7 @@ function renderCertificates() {
         <div class="cert-thumb">
           ${cert.image
             ? `<img src="${cert.image}" alt="${cert.title} certificate" loading="lazy" />`
-            : `<div class="cert-pending"><span class="cert-pending-mark">★</span><span>Certificate coming soon</span></div>`}
+            : `<div class="cert-pending"><span class="cert-pending-mark">★</span><span>${cert.issuer}</span></div>`}
           <span class="cert-type">${cert.type}</span>
         </div>
         <div class="project-card-body">

@@ -45,8 +45,8 @@ function renderCertificate(cert, index) {
       : `<div class="cert-frame cert-frame-pending">
           <div class="cert-pending">
             <span class="cert-pending-mark">★</span>
-            <span>Certificate coming soon</span>
-            <small>This award has been confirmed and the certificate will be added once it’s issued.</small>
+            <span>${cert.title}</span>
+            <small>${cert.issuer} · ${cert.date}</small>
           </div>
         </div>`}
 

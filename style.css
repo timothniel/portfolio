@@ -1270,7 +1270,13 @@ hr {
 }
 
 .shot-grid--desktop .shot-frame {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
+  background: #f1f2ef;
+}
+
+/* Show whole slides and diagrams; nothing gets cropped */
+.shot-grid--desktop .shot-frame img {
+  object-fit: contain;
 }
 
 .shot-grid--mobile .shot-frame {

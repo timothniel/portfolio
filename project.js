@@ -110,7 +110,7 @@ function renderSkillsApplied(project) {
 }
 
 function renderScreenshots(project) {
-  const shots = project.screenshots || [];
+  const shots = (project.screenshots || []).filter((s) => s.src);
   if (!shots.length) return "";
   const layout = ["mobile", "desktop", "mockup"].includes(project.screenshotLayout)
     ? project.screenshotLayout
