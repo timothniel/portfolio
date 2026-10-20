@@ -122,43 +122,6 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    id: "sigap",
-    skills: ["Requirements analysis", "Analytical thinking", "Case analysis", "SAP S/4HANA", "SAP IBP & Joule", "AWS Bedrock AgentCore"],
-    title: "SIGAP",
-    image: "assets/projects/sigap/thumbnail.jpg",
-    eyebrow: "Agentic AI University Hackathon 2026 · Top 40 Finalist",
-    tagline:
-      "A five-agent AI system that drafts, monitors and corrects annual drug procurement plans (RKO) for Indonesian health facilities, with the pharmacist keeping the final say.",
-    tags: ["Hackathon", "Agentic AI", "Finalist"],
-    category: "Agentic AI University Hackathon 2026",
-    year: "2026",
-    role: "Top 40 Finalist · Co-developer",
-    team: "TheBest Team (3 members)",
-    stack: "AWS Bedrock AgentCore, Amazon SageMaker, EventBridge, SAP S/4HANA (MM, PP), SAP IBP, SAP Joule, SAP Ariba",
-    description:
-      "SIGAP (Signal · Intelligent Forecast · Gap Diagnoser · Autonomous Action · Pharmacist Approval) is an agentic AI solution for puskesmas and hospital pharmacists. It builds the yearly drug requirement plan from consumption and morbidity data, watches realisation every month, investigates why the plan and reality diverge, and prepares the corrective documents ready for sign-off.",
-    problem:
-      "Pharmacists still build RKOs mostly by hand. Planning accuracy was recorded at only 59.89% in Jombang district, and Surabaya puskesmas showed 47.9% stagnant stock alongside 8.56% stock-outs at the same time. E-purchasing realisation usually lands below 50% of the submitted RKO, and existing channels (e-Monev Obat, e-Katalog LKPP) only record data — none of them diagnose why the numbers drift.",
-    approach:
-      "We designed a closed loop of five agents, each with one job. A Signal Sensor self-triggers when an item’s deviation crosses a threshold; a Gap Diagnoser tests four competing hypotheses (plan set too high, order not placed, supplier under-fulfilment, real demand shift) against the evidence each one needs and reports the surviving cause with an explicit confidence level. An Action Orchestrator then either revises the RKO or escalates to SAP Joule for production planning. Every output stops at a Human-in-the-Loop pharmacist approval with the full reasoning trace. The architecture maps each agent to AWS Bedrock AgentCore services (Runtime, Gateway, Memory, Identity, Observability, Code Interpreter) and to SAP modules (S/4HANA MM & PP, IBP, Ariba).",
-    highlights: [
-      "Selected as one of the Top 40 Finalists of the Agentic AI University Hackathon 2026, advancing to the Finals & Demo Day on 31 October 2026",
-      "Cuts plan-deviation detection from a 12-month cycle down to monthly",
-      "Projected 15–20% improvement in drug-planning accuracy, with every decision explainable and approved by a pharmacist",
-      "Mapped the full agent loop onto real enterprise services across AWS and SAP",
-    ],
-    screenshotLayout: "desktop",
-    screenshots: [
-      { src: "assets/projects/sigap/shot-1.jpg", caption: "The SIGAP framework: five agents, from Signal Sensing to Pharmacist Approval" },
-      { src: "assets/projects/sigap/shot-2.jpg", caption: "AWS and SAP module map: what each service does and which agent uses it" },
-      { src: "assets/projects/sigap/shot-3.jpg", caption: "Expected result: the problem, the solution and its direct impact" },
-      { src: "assets/projects/sigap/shot-4.jpg", caption: "Issue tree tracing drug-planning gaps back to their root causes" },
-    ],
-    links: [],
-    liveUrl: "",
-    repoUrl: "",
-  },
-  {
     id: "kind",
     skills: ["Figma prototyping", "Design Thinking", "Wireframes & task flows", "Requirements analysis", "Usability testing (SEQ, SUS)"],
     title: "KIND",
@@ -243,6 +206,43 @@ const PROJECTS = [
     links: [
       { label: "View prototype", url: "https://www.figma.com/proto/FirIQy2k7T1r7m1OBfak7J/Hackfest-Raja-Guk-Guk?node-id=448-5110&page-id=0%3A1&starting-point-node-id=448%3A5110&scaling=scale-down&content-scaling=fixed&show-proto-sidebar=1" },
     ],
+    liveUrl: "",
+    repoUrl: "",
+  },
+  {
+    id: "sigap",
+    skills: ["Requirements analysis", "Analytical thinking", "Case analysis", "SAP S/4HANA", "SAP IBP & Joule", "AWS Bedrock AgentCore"],
+    title: "SIGAP",
+    image: "assets/projects/sigap/thumbnail.jpg",
+    eyebrow: "Agentic AI University Hackathon 2026 · Top 40 Finalist",
+    tagline:
+      "A five-agent AI system that drafts, monitors and corrects annual drug procurement plans (RKO) for Indonesian health facilities, with the pharmacist keeping the final say.",
+    tags: ["Hackathon", "Agentic AI", "Finalist"],
+    category: "Agentic AI University Hackathon 2026",
+    year: "2026",
+    role: "Top 40 Finalist · Co-developer",
+    team: "TheBest Team (3 members)",
+    stack: "AWS Bedrock AgentCore, Amazon SageMaker, EventBridge, SAP S/4HANA (MM, PP), SAP IBP, SAP Joule, SAP Ariba",
+    description:
+      "SIGAP (Signal · Intelligent Forecast · Gap Diagnoser · Autonomous Action · Pharmacist Approval) is an agentic AI solution for puskesmas and hospital pharmacists. It builds the yearly drug requirement plan from consumption and morbidity data, watches realisation every month, investigates why the plan and reality diverge, and prepares the corrective documents ready for sign-off.",
+    problem:
+      "Pharmacists still build RKOs mostly by hand. Planning accuracy was recorded at only 59.89% in Jombang district, and Surabaya puskesmas showed 47.9% stagnant stock alongside 8.56% stock-outs at the same time. E-purchasing realisation usually lands below 50% of the submitted RKO, and existing channels (e-Monev Obat, e-Katalog LKPP) only record data — none of them diagnose why the numbers drift.",
+    approach:
+      "We designed a closed loop of five agents, each with one job. A Signal Sensor self-triggers when an item’s deviation crosses a threshold; a Gap Diagnoser tests four competing hypotheses (plan set too high, order not placed, supplier under-fulfilment, real demand shift) against the evidence each one needs and reports the surviving cause with an explicit confidence level. An Action Orchestrator then either revises the RKO or escalates to SAP Joule for production planning. Every output stops at a Human-in-the-Loop pharmacist approval with the full reasoning trace. The architecture maps each agent to AWS Bedrock AgentCore services (Runtime, Gateway, Memory, Identity, Observability, Code Interpreter) and to SAP modules (S/4HANA MM & PP, IBP, Ariba).",
+    highlights: [
+      "Selected as one of the Top 40 Finalists of the Agentic AI University Hackathon 2026, advancing to the Finals & Demo Day on 31 October 2026",
+      "Cuts plan-deviation detection from a 12-month cycle down to monthly",
+      "Projected 15–20% improvement in drug-planning accuracy, with every decision explainable and approved by a pharmacist",
+      "Mapped the full agent loop onto real enterprise services across AWS and SAP",
+    ],
+    screenshotLayout: "desktop",
+    screenshots: [
+      { src: "assets/projects/sigap/shot-1.jpg", caption: "The SIGAP framework: five agents, from Signal Sensing to Pharmacist Approval" },
+      { src: "assets/projects/sigap/shot-2.jpg", caption: "AWS and SAP module map: what each service does and which agent uses it" },
+      { src: "assets/projects/sigap/shot-3.jpg", caption: "Expected result: the problem, the solution and its direct impact" },
+      { src: "assets/projects/sigap/shot-4.jpg", caption: "Issue tree tracing drug-planning gaps back to their root causes" },
+    ],
+    links: [],
     liveUrl: "",
     repoUrl: "",
   },
