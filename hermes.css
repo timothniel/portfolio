@@ -617,8 +617,21 @@ figure { margin: 0; }
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1020px) {
-  .hx-hero-grid { grid-template-columns: 1fr; gap: 48px; }
-  .hx-portrait { justify-self: start; max-width: 220px; margin-top: 0; }
+  /* Tablet and phone: the portrait sits beside the name */
+  .hx-hero-grid { grid-template-columns: minmax(0, 1fr) auto; column-gap: clamp(16px, 4vw, 40px); row-gap: 0; }
+  .hx-hero-grid > div:first-child { display: contents; }
+  .hx-hero-grid > div:first-child > * { grid-column: 1 / -1; }
+  .hx-hero-grid > div:first-child > .hx-hero-name { grid-column: 1; grid-row: 2; }
+  .hx-hero-grid > div:first-child > .hx-label:first-child { grid-row: 1; }
+  .hx-portrait {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    justify-self: end;
+    width: clamp(108px, 30vw, 220px);
+    max-width: none;
+    margin: 0;
+  }
   .hx-skill-grid { grid-template-columns: repeat(2, 1fr); }
   .hx-cert-grid { grid-template-columns: repeat(2, 1fr); }
   .hx-stats { grid-template-columns: repeat(3, 1fr); }
