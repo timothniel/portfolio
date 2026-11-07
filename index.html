@@ -4,141 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAADsOAAA7DgHMtqGDAAAA40lEQVRYhe2XzQ6CMBCEe+63R+GZOBt8IH94PNBHEfVMzUYkVRuMAW1MusmcIDPTbik7xngF5MAO2AMXwM0E5WqArWqYUInIylp7mlE0CNUQkfJFHOi+Le6hG0wA+S9WHtiJVkQy0/fcRcJGDRwiGmiMtfYcy4C23oy9UBSFq6pqEpRjTMOMPVSCqaUcyQB/2wI+MPZOKBkgtYB0CEmfoUsXEekqJvAzshEmYm8ka02fguINpdziUiwD65jB5Cgii3s0KyNEs+VzPiz1UPxo5Y/inolM4xJQzxlYeq5aez5se19Xvsvm+u5bGDgAAAAASUVORK5CYII=" type="image/png" sizes="32x32" />
-  <title>Timothy's Portfolio</title>
+  <title>Timothy Othniel Wahyudi — Portfolio</title>
+  <meta name="description" content="Information Systems student at BINUS University: business and systems analysis, databases and SQL, and UI/UX design." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="hermes.css?v=20261107" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
   <!-- ===================== NAV ===================== -->
-  <header class="site-nav">
-    <div class="container nav-inner">
-      <a href="#top" class="brand" id="brandName">Timothy's Portfolio</a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links" id="navLinks">
+  <header class="hx-nav" id="nav">
+    <div class="hx-container hx-nav-inner">
+      <a href="#top" class="hx-brand" aria-label="Back to top"><span>Timothy</span><span>Wahyudi</span></a>
+      <nav class="hx-nav-links" id="navLinks" aria-label="Sections">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
         <a href="#achievements">Achievements</a>
       </nav>
-      <a href="#contact" class="btn-pill-invert">Contact</a>
+      <div class="hx-nav-actions">
+        <a href="#contact" class="hx-btn hx-btn--sm" data-icon="mail">Contact me</a>
+        <button class="hx-burger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" data-icon="menu"></button>
+      </div>
     </div>
   </header>
 
-  <!-- ===================== HERO / ABOUT ===================== -->
-  <section class="hero" id="top">
-    <div class="container hero-grid">
-      <div class="hero-photo-col" id="about">
-        <div class="polaroid">
-          <div class="polaroid-photo">
-            <img
-              src="assets/Profile.jpg"
-              alt="Portrait of Timothy Othniel Wahyudi"
-              id="profileImg"
-              onerror="this.style.display='none'; document.getElementById('photoFallback').style.display='flex';"
-            />
-            <div class="photo-fallback" id="photoFallback" style="display:none;">
-              <span class="initials" id="fallbackInitials">TW</span>
+  <main id="top">
+    <!-- ===================== ABOUT (hero) ===================== -->
+    <section class="hx-hero" id="about">
+      <div class="hx-container">
+        <div class="hx-hero-grid">
+          <div>
+            <p class="hx-label" id="heroLabel">// About me</p>
+            <h1 class="hx-display hx-hero-name" id="heroName"></h1>
+            <div class="hx-hero-meta hx-label" id="heroMeta"></div>
+            <h2 class="hx-hero-headline" id="heroHeadline"></h2>
+            <div class="hx-actions">
+              <a href="assets/CV.pdf" class="hx-btn" id="cvLink" download data-icon="download">Download full CV</a>
+              <a href="#projects" class="hx-btn hx-btn--blue" data-icon="briefcase">Explore my projects</a>
+            </div>
+
+            <p class="hx-label hx-term-label">Explore my skills via terminal</p>
+            <div class="hx-term" id="term">
+              <div class="hx-term-tabs" role="tablist" id="termTabs"></div>
+              <div class="hx-term-body" id="termBody" role="tabpanel" aria-live="polite"></div>
+              <div class="hx-term-foot">
+                <span>$ mail <span id="termEmail"></span></span>
+                <button class="hx-copy" id="copyEmail" type="button" aria-label="Copy email address" data-icon="copy"></button>
+              </div>
             </div>
           </div>
+
+          <figure class="hx-portrait">
+            <img src="assets/Profile.jpg" alt="Portrait of Timothy Othniel Wahyudi" id="profileImg" />
+          </figure>
         </div>
-        <div class="hero-id">
-          <h1 class="mono-heading hero-name" id="heroName">Timothy Othniel Wahyudi</h1>
-          <p class="hero-role" id="heroRole">Master Track Information Systems Management</p>
-          <p class="hero-school" id="heroSchool">BINUS University | Jakarta, Indonesia</p>
+
+        <div class="hx-about-body hx-reveal">
+          <p class="hx-label"># Profile</p>
+          <div id="heroBio" style="display:contents"></div>
         </div>
+        <ul class="hx-stats hx-reveal" id="heroStats" aria-label="Highlights"></ul>
       </div>
+    </section>
 
-      <div class="hero-info">
-        <h2 class="mono-heading hero-headline" id="heroHeadline">Turning business problems into systems that work</h2>
-        <div class="hero-bio" id="heroBio"></div>
-        <ul class="hero-stats" id="heroStats" aria-label="Highlights"></ul>
-        <div class="hero-actions">
-          <a href="assets/CV.pdf" class="btn-solid" id="cvLink" download>Download Full CV</a>
-          <a href="#projects" class="btn-outline">Explore My Projects</a>
+    <!-- ===================== SKILLS ===================== -->
+    <section class="hx-section" id="skills">
+      <div class="hx-container">
+        <div class="hx-section-head hx-reveal">
+          <div>
+            <h2 class="hx-h2">Skills &amp; Tools<span data-icon="sliders"></span></h2>
+            <p class="hx-lead">Each skill is rated from 1 to 5. Project pages show the same ratings for the skills used.</p>
+          </div>
         </div>
+        <div class="hx-scale hx-reveal" id="skillScale"></div>
+        <div class="hx-skill-grid hx-reveal" id="skillGrid"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===================== SKILLS & TOOLS ===================== -->
-  <section class="section-block" id="skills">
-    <div class="container">
-      <p class="mono-heading section-title">Skills &amp; Tools</p>
-      <p class="section-sub">Each skill is rated from 1 to 5. Project pages show the same ratings for the skills used.</p>
-      <!-- Rendered by main.js from SKILL_SCALE and SKILLS in data.js -->
-      <dl class="skill-scale" id="skillScale"></dl>
-      <div class="skill-grid" id="skillGrid"></div>
-    </div>
-  </section>
-
-  <!-- ===================== PROJECTS ===================== -->
-  <section class="section-block" id="projects">
-    <div class="container">
-      <p class="mono-heading section-title">My Projects</p>
-      <p class="section-sub">Competition entries and course projects across business analysis, system design, data and UI/UX</p>
-      <!-- Rendered by js/main.js from PROJECTS in js/data.js -->
-      <div class="project-grid" id="projectGrid"></div>
-    </div>
-  </section>
-
-  <!-- ===================== EXPERIENCE ===================== -->
-  <section class="section-block" id="experience" style="border-top:1px solid var(--line);">
-    <div class="container">
-      <p class="mono-heading section-title">My Experiences</p>
-      <p class="section-sub">Teaching, mentoring, leadership and work experience</p>
-      <!-- Rendered by js/main.js from EXPERIENCE in js/data.js -->
-      <div id="experienceList"></div>
-    </div>
-  </section>
-
-  <!-- ===================== ACHIEVEMENTS & CERTIFICATIONS ===================== -->
-  <section class="section-block" id="achievements" style="border-top:1px solid var(--line);">
-    <div class="container">
-      <p class="mono-heading section-title">Achievements &amp; Certifications</p>
-      <p class="section-sub">Awards, competition results, training and recognition. Click a card to see the full certificate.</p>
-      <!-- Rendered by main.js from CERTIFICATES in data.js -->
-      <div class="filter-bar" id="certFilters" role="group" aria-label="Filter certificates"></div>
-      <div class="project-grid cert-grid" id="certGrid"></div>
-    </div>
-  </section>
-
-  <!-- ===================== CONTACT / FOOTER ===================== -->
-  <footer class="site-footer" id="contact">
-    <div class="container footer-grid">
-      <div>
-        <p class="footer-eyebrow">My personal goal is to</p>
-        <h2 class="footer-headline">Leveraging Skills<br />Creating Impact.</h2>
+    <!-- ===================== PROJECTS ===================== -->
+    <section class="hx-section" id="projects">
+      <div class="hx-container">
+        <div class="hx-section-head hx-reveal">
+          <div>
+            <h2 class="hx-h2">Projects<span data-icon="briefcase"></span></h2>
+            <p class="hx-lead">Competition entries and course projects across business analysis, system design, data and UI/UX.</p>
+          </div>
+        </div>
+        <div class="hx-project-grid" id="projectGrid"></div>
       </div>
-      <div class="footer-contact">
-        <div class="footer-item">
-          <p class="footer-label">LinkedIn</p>
-          <a class="footer-value" id="linkedinLink" href="https://www.linkedin.com/in/timothyothnielwahyudi/" target="_blank" rel="noopener">linkedin.com/in/timothyothnielwahyudi</a>
+    </section>
+
+    <!-- ===================== EXPERIENCE ===================== -->
+    <section class="hx-section" id="experience">
+      <div class="hx-container">
+        <div class="hx-section-head hx-reveal">
+          <div>
+            <h2 class="hx-h2">Experience<span data-icon="users"></span></h2>
+            <p class="hx-lead">Teaching, mentoring, leadership and work experience. Open a role to read more.</p>
+          </div>
         </div>
-        <div class="footer-item">
-          <p class="footer-label">E-mail</p>
-          <a class="footer-value" id="emailLink" href="mailto:timothniel@gmail.com">timothniel@gmail.com</a>
+        <div id="experienceList"></div>
+      </div>
+    </section>
+
+    <!-- ===================== ACHIEVEMENTS ===================== -->
+    <section class="hx-section" id="achievements">
+      <div class="hx-container">
+        <div class="hx-section-head hx-reveal">
+          <div>
+            <h2 class="hx-h2">Achievements<span data-icon="trophy"></span></h2>
+            <p class="hx-lead">Awards, competition results, training and recognition. Open a card to see the full certificate.</p>
+          </div>
         </div>
-        <div class="footer-item">
-          <p class="footer-label">WhatsApp</p>
-          <a class="footer-value" id="phoneLink" href="https://wa.me/6285156275425">+62 851 5627 5425</a>
+        <div class="hx-tabs hx-reveal" id="certFilters" role="group" aria-label="Filter certificates"></div>
+        <div class="hx-cert-grid" id="certGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section class="hx-cta" id="contact">
+      <div class="hx-container hx-cta-grid">
+        <div class="hx-reveal">
+          <p class="hx-label">My personal goal is to</p>
+          <h2 class="hx-display" style="margin-top:14px">Leveraging Skills,<br />Creating Impact.</h2>
+        </div>
+        <div class="hx-contact-list hx-reveal" id="contactList"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="hx-footer">
+    <div class="hx-footer-mark" aria-hidden="true">Timothy</div>
+    <div class="hx-container">
+      <div class="hx-footer-badges" id="footerBadges"></div>
+      <div class="hx-footer-row">
+        <div>
+          <p>Leveraging skills, creating impact</p>
+          <p>© <span class="yr"></span>, Timothy Othniel Wahyudi</p>
+        </div>
+        <div class="right">
+          <p id="footerLinks"></p>
+          <p>Jakarta, Indonesia · <span id="footerDate"></span></p>
         </div>
       </div>
     </div>
   </footer>
-  <div class="bottom-bar" id="bottomBar">
-    <p class="bottom-bar" id="text">© 2026 Timothy Othniel Wahyudi</p>
-  </div>
 
-  <script src="data.js"></script>
-  <script src="main.js"></script>
+  <script src="data.js?v=20261107"></script>
+  <script src="hermes-icons.js?v=20261107"></script>
+  <script src="hermes-common.js?v=20261107"></script>
+  <script src="hermes-main.js?v=20261107"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@ const PROFILE = {
   name: "Timothy Othniel Wahyudi",
   title: "Master Track Information Systems Management",
   school: "BINUS University | Jakarta, Indonesia",
-  headline: "Turning business problems into systems that work",
+  headline: "Turning scattered data, business problems, and user needs into working systems. Bridging business and technology.",
   // Each string is one paragraph in the About section.
   bio: [
     "I’m an Information Systems (Master Track) student at BINUS University with a 3.95/4.00 GPA, recognised among the top 5% of the School of Information Systems. I enjoy the space between business and technology: understanding how a process really works, then shaping the requirements, data and design that make it work better.",
@@ -70,19 +70,20 @@ const SKILLS = [
   {
     category: "Data & Databases",
     items: [
-      { name: "SQL / MySQL", level: 5 },
-      { name: "ERD & normalisation", level: 5 },
+      { name: "SQL / MySQL", level: 4.5 },
+      { name: "ERD & normalisation", level: 4.5 },
       { name: "Oracle SQL & APEX", level: 4 },
-      { name: "Excel Power Query", level: 4 },
+      { name: "Excel Power Query", level: 4.5 },
       { name: "Power Pivot & DAX", level: 4 },
-      { name: "PivotTables & dashboards", level: 4 },
+      { name: "PivotTables & dashboards", level: 5 },
     ],
   },
   {
     category: "ERP & Enterprise Systems",
     items: [
-      { name: "SAP S/4HANA", level: 4 },
+      { name: "SAP S/4HANA", level: 3 },
       { name: "Oracle NetSuite", level: 3 },
+      { name: "Odoo", level: 4 },
       { name: "SAP IBP & Joule", level: 3 },
       { name: "AWS Bedrock AgentCore", level: 3 },
     ],
@@ -100,8 +101,8 @@ const SKILLS = [
   {
     category: "Project Management & Leadership",
     items: [
-      { name: "Teaching & facilitation", level: 5 },
-      { name: "Team leadership (±60 people)", level: 5 },
+      { name: "Teaching & facilitation", level: 4.5 },
+      { name: "Team leadership (±60 people)", level: 4 },
       { name: "Agile / Scrum backlog", level: 4 },
       { name: "WBS & Gantt planning", level: 4 },
       { name: "Risk planning", level: 4 },
@@ -110,9 +111,9 @@ const SKILLS = [
   {
     category: "Soft Skills & Languages",
     items: [
-      { name: "Analytical thinking", level: 5 },
-      { name: "Communication", level: 5 },
-      { name: "Public speaking", level: 5 },
+      { name: "Analytical thinking", level: 4.5 },
+      { name: "Communication", level: 4.5 },
+      { name: "Public speaking", level: 4 },
       { name: "Case analysis", level: 4 },
       { name: "Bahasa Indonesia (native)", level: 5 },
       { name: "English", level: 4 },
@@ -122,11 +123,54 @@ const SKILLS = [
 
 const PROJECTS = [
   {
+    id: "sigap",
+    skills: ["Requirements analysis", "Analytical thinking", "Case analysis", "SAP S/4HANA", "SAP IBP & Joule", "AWS Bedrock AgentCore"],
+    title: "SIGAP",
+    image: "assets/projects/sigap/thumbnail.jpg",
+    eyebrow: "Agentic AI University Hackathon 2026 · Top 40 Finalist",
+    tagline:
+      "An agentic pre-check for the yearly drug plan (RKO): it computes the plan from a puskesmas’ own data, checks it against the Juknis before it is sent, and gives the district verifier only the lines that need a human decision.",
+    tags: ["Hackathon", "Agentic AI", "Finalist"],
+    category: "Agentic AI University Hackathon 2026 (SOKRATES × BINUS × AWS × SAP)",
+    year: "2026",
+    role: "Business process & solution design",
+    team: "TheBest Team (3 members) · engineering by James",
+    stack: "BPMN-style As-Is / To-Be process design, issue tree, decision rights · built on SAP AI Core (Claude), SAP BTP Cloud Foundry, SAP Joule (A2A), AWS Lambda behind Amazon Bedrock AgentCore Gateway, Amazon S3, Python, Streamlit",
+    description:
+      "SIGAP sits between a puskesmas pharmacist and the district health office (Dinkes kab/kota). The pharmacist uploads a year of usage and stock data; SIGAP computes the RKO with the Juknis formula, flags lines that break a verification criterion, and an AI agent investigates each flagged line with evidence tools before the plan is sent. The Dinkes verifier then reads only the flagged lines and decides. All data in the project is synthetic.",
+    problem:
+      "Pharmacists still build RKOs largely by hand. Planning accuracy was recorded at only 59.89% in Jombang district, and Surabaya puskesmas showed 47.9% stagnant stock alongside 8.56% stock-outs at the same time. When a quantity has no justification, Dinkes sends the plan back, and with no SLA plans bounce for weeks. Existing channels such as e-Monev Obat record the numbers but never explain them.",
+    approach:
+      "My part was the business process. I traced the planning gaps to their root causes in an issue tree, mapped the As-Is flow between puskesmas and Dinkes, and designed the To-Be: SIGAP does the arithmetic and the checking, an agent gathers evidence only for the lines that need it, and every submit and approval stays with a named person. The case study below walks through both processes, the decision rights and the rules. James built the system on SAP and AWS, from the agent and its eight evidence tools to the web app and the evaluation.",
+    highlights: [
+      "Top 40 Finalist of the Agentic AI University Hackathon 2026; Finals & Demo Day on 31 October 2026",
+      "Agent + evidence gate got 60/60 verdicts right, against 36/60 for rules alone and 54/60 for a fixed checklist",
+      "On unseen case types the agent was right 20/24 times and let 0 wrong lines through; the checklist let 6 through",
+      "Designed so the agent never submits, approves or purchases: it drafts, people decide",
+      "Runs end to end on SAP BTP and AWS, and answers the verification queue inside SAP Joule",
+    ],
+    caseStudy: ["assets/projects/sigap/case-study.js"],
+    screenshotLayout: "desktop",
+    screenshots: [
+      { src: "assets/projects/sigap/app-1.jpg", caption: "Puskesmas view: upload a year of data with the Excel template" },
+      { src: "assets/projects/sigap/app-2.jpg", caption: "SIGAP computes every RKO line with the Juknis formula" },
+      { src: "assets/projects/sigap/app-3.jpg", caption: "The working behind each number, then the pre-check before sending" },
+      { src: "assets/projects/sigap/app-4.jpg", caption: "Each flagged line arrives with a verdict and the evidence tools behind it" },
+      { src: "assets/projects/sigap/app-5.jpg", caption: "Dinkes view: the verification queue, reading only flagged lines" },
+      { src: "assets/projects/sigap/shot-4.jpg", caption: "Issue tree tracing drug-planning gaps back to their root causes" },
+      { src: "assets/projects/sigap/shot-1.jpg", caption: "Proposal stage: the first five-agent concept, before the design narrowed to a pre-check" },
+      { src: "assets/projects/sigap/shot-2.jpg", caption: "Proposal stage: the first map of AWS and SAP services" },
+    ],
+    links: [],
+    liveUrl: "",
+    repoUrl: "",
+  },
+  {
     id: "kind",
     skills: ["Figma prototyping", "Design Thinking", "Wireframes & task flows", "Requirements analysis", "Usability testing (SEQ, SUS)"],
     title: "KIND",
     image: "assets/projects/kind/thumbnail.jpg",
-    eyebrow: "ITECHNOCUP PNJ 2026 · International UI/UX Competition · Finalist",
+    eyebrow: "ITECHNOCUP PNJ 2026 · International UI/UX Competition · Top 10 Finalist",
     tagline:
       "An integrated care platform that connects families and care recipients, so dementia is recognized early, managed with confidence, and never faced alone.",
     tags: ["Competition", "UI/UX", "Finalist"],
@@ -142,7 +186,7 @@ const PROJECTS = [
     approach:
       "We followed Design Thinking (Empathize → Define → Ideate → Prototype → Test): user interviews, segmentation and personas, an As-Is vs To-Be journey, solution mapping, then high-fidelity prototyping in Figma on an iPhone frame. Core modules: shared Task & Care Management with an AI that surfaces symptom patterns from care logs; Sentinel safety monitoring (CCTV, smartwatch, fall and wandering alerts); a Life Memory Book for the PLWD; an AI-assisted Caregiver Learning Hub; and a Care Circle with permission-based family access. The system scope was defined using a 3-tier architecture.",
     highlights: [
-      "Finalist at an international UI/UX competition (ITECHNOCUP PNJ 2026)",
+      "Top 10 Finalist at an international UI/UX competition (ITECHNOCUP PNJ 2026)",
       "SUS rose across three test rounds, 76 → 80 → 86 (average 80.6)",
       "SEQ score of 5.3 across seven core tasks, from adding a recipient to connecting a camera",
       "Iterated the design from tester feedback, e.g. task progress bars and a more capable camera view",
@@ -173,7 +217,7 @@ const PROJECTS = [
     skills: ["Figma prototyping", "Design Thinking", "Team leadership (±60 people)", "Requirements analysis", "Usability testing (SEQ, SUS)"],
     title: "SkillFuel",
     image: "assets/projects/skillfuel/thumbnail.jpg",
-    eyebrow: "HACKFEST UC 2026 · International UI/UX Competition · Finalist",
+    eyebrow: "HACKFEST UC 2026 · International UI/UX Competition · Top 8 Finalist",
     tagline:
       "An AI-powered career ecosystem that helps fresh graduates build verified skills and portfolios, and helps recruiters find them faster.",
     tags: ["Competition", "UI/UX", "Finalist"],
@@ -189,7 +233,7 @@ const PROJECTS = [
     approach:
       "We ran a Design Thinking process: a 60-respondent survey, interviews with three HR professionals, segmentation and personas for fresh graduates, young professionals and recruiters, then task flows, a navigation map and high-fidelity Figma screens. Features follow the SKILLS framework: Smart career path, Knowledge courses, Intelligent CV generator, Learning through AI project simulation, Live mentors, and Smart recruiter matching. Job Seek only unlocks applications once a user meets course or project requirements.",
     highlights: [
-      "Finalist at an international UI/UX competition (HACKFEST UC 2026)",
+      "Top 8 Finalist at an international UI/UX competition (HACKFEST UC 2026)",
       "SUS score of 89.5 and overall SEQ of 4.48 in usability testing",
       "Skill Gap Analysis was ranked the #1 most-wanted feature by survey respondents",
       "Redesigned the Course flow after testing, bringing Continue Learning and streaks to the top",
@@ -206,43 +250,6 @@ const PROJECTS = [
     links: [
       { label: "View prototype", url: "https://www.figma.com/proto/FirIQy2k7T1r7m1OBfak7J/Hackfest-Raja-Guk-Guk?node-id=448-5110&page-id=0%3A1&starting-point-node-id=448%3A5110&scaling=scale-down&content-scaling=fixed&show-proto-sidebar=1" },
     ],
-    liveUrl: "",
-    repoUrl: "",
-  },
-  {
-    id: "sigap",
-    skills: ["Requirements analysis", "Analytical thinking", "Case analysis", "SAP S/4HANA", "SAP IBP & Joule", "AWS Bedrock AgentCore"],
-    title: "SIGAP",
-    image: "assets/projects/sigap/thumbnail.jpg",
-    eyebrow: "Agentic AI University Hackathon 2026 · Top 40 Finalist",
-    tagline:
-      "A five-agent AI system that drafts, monitors and corrects annual drug procurement plans (RKO) for Indonesian health facilities, with the pharmacist keeping the final say.",
-    tags: ["Hackathon", "Agentic AI", "Finalist"],
-    category: "Agentic AI University Hackathon 2026",
-    year: "2026",
-    role: "Top 40 Finalist · Co-developer",
-    team: "TheBest Team (3 members)",
-    stack: "AWS Bedrock AgentCore, Amazon SageMaker, EventBridge, SAP S/4HANA (MM, PP), SAP IBP, SAP Joule, SAP Ariba",
-    description:
-      "SIGAP (Signal · Intelligent Forecast · Gap Diagnoser · Autonomous Action · Pharmacist Approval) is an agentic AI solution for puskesmas and hospital pharmacists. It builds the yearly drug requirement plan from consumption and morbidity data, watches realisation every month, investigates why the plan and reality diverge, and prepares the corrective documents ready for sign-off.",
-    problem:
-      "Pharmacists still build RKOs mostly by hand. Planning accuracy was recorded at only 59.89% in Jombang district, and Surabaya puskesmas showed 47.9% stagnant stock alongside 8.56% stock-outs at the same time. E-purchasing realisation usually lands below 50% of the submitted RKO, and existing channels (e-Monev Obat, e-Katalog LKPP) only record data — none of them diagnose why the numbers drift.",
-    approach:
-      "We designed a closed loop of five agents, each with one job. A Signal Sensor self-triggers when an item’s deviation crosses a threshold; a Gap Diagnoser tests four competing hypotheses (plan set too high, order not placed, supplier under-fulfilment, real demand shift) against the evidence each one needs and reports the surviving cause with an explicit confidence level. An Action Orchestrator then either revises the RKO or escalates to SAP Joule for production planning. Every output stops at a Human-in-the-Loop pharmacist approval with the full reasoning trace. The architecture maps each agent to AWS Bedrock AgentCore services (Runtime, Gateway, Memory, Identity, Observability, Code Interpreter) and to SAP modules (S/4HANA MM & PP, IBP, Ariba).",
-    highlights: [
-      "Selected as one of the Top 40 Finalists of the Agentic AI University Hackathon 2026, advancing to the Finals & Demo Day on 31 October 2026",
-      "Cuts plan-deviation detection from a 12-month cycle down to monthly",
-      "Projected 15–20% improvement in drug-planning accuracy, with every decision explainable and approved by a pharmacist",
-      "Mapped the full agent loop onto real enterprise services across AWS and SAP",
-    ],
-    screenshotLayout: "desktop",
-    screenshots: [
-      { src: "assets/projects/sigap/shot-1.jpg", caption: "The SIGAP framework: five agents, from Signal Sensing to Pharmacist Approval" },
-      { src: "assets/projects/sigap/shot-2.jpg", caption: "AWS and SAP module map: what each service does and which agent uses it" },
-      { src: "assets/projects/sigap/shot-3.jpg", caption: "Expected result: the problem, the solution and its direct impact" },
-      { src: "assets/projects/sigap/shot-4.jpg", caption: "Issue tree tracing drug-planning gaps back to their root causes" },
-    ],
-    links: [],
     liveUrl: "",
     repoUrl: "",
   },
@@ -330,33 +337,41 @@ const PROJECTS = [
     image: "assets/projects/mybca-database/thumbnail.jpg",
     eyebrow: "Data & Information Management · Final Project",
     tagline:
-      "A secure, transaction-ready database design for BCA’s digital banking: customers, accounts, transfers, QRIS payments and audit logs.",
-    tags: ["Database Design", "Data Management", "Final Project"],
+      "A 20-table, third-normal-form database for BCA’s digital banking, taken from business rules through normalisation and a logical ERD to SQL that actually runs. Try it live further down this page.",
+    tags: ["Database Design", "SQL", "Final Project"],
     category: "Course Final Project — Data and Information Management",
     year: "2025",
-    role: "Team project",
+    role: "Team project · rebuilt as working SQL in 2026",
     team: "5 members",
-    stack: "Database initial study, advanced ERD, physical database design, integrity constraints, application mock-ups",
+    stack: "Business rules, normalisation (UNF → 1NF → 2NF → 3NF), EER supertype/subtype mapping, logical ERD, MySQL / MariaDB, SQLite, CHECK constraints, triggers, views",
     description:
-      "A data and information management study of Bank Central Asia’s myBCA ecosystem. We analysed how BCA manages customer master data, accounts and real-time transactions across ATM, mobile, internet banking and QRIS, then designed the database to support it.",
+      "A data and information management study of Bank Central Asia’s myBCA ecosystem. We analysed how BCA manages customer master data, accounts and real-time transactions across mobile, internet banking, ATM and QRIS, then designed the database to support it. In 2026 I took the paper design all the way to a working, tested database.",
     problem:
-      "BCA serves 25M+ active customers and processes millions of transactions a day. Data arrives from many channels (ATM, teller, mobile, QRIS), which risks inconsistency without strong integration, and the bank must protect customer data under OJK and BI regulations.",
+      "BCA serves tens of millions of customers and processes millions of transactions a day. Data arrives from many channels (ATM, branch, mobile, QRIS), which risks inconsistent customer records without one master key, and the bank must protect customer data and keep an audit trail under OJK and Bank Indonesia rules. A design on paper can look right and still break the moment real data goes in.",
     approach:
-      "We ran a database initial study (company situation, problems, constraints, objectives), then built an advanced ERD and a physical design of 20 tables, covering Customer, Account, User Role, Audit Log, Channel, Transactions, transfer sub-types (to BCA / to other banks), Merchant, Terminal and QRIS Transaction. We added derived data and general constraints (balances can’t go negative, transaction amounts must be > 0) and designed matching app screens for registration, transfers and an activity dashboard.",
+      "We started with a database initial study (situation, problems, constraints, objectives) and wrote the business rules. From the bank’s transaction report we normalised step by step from UNF to 3NF, naming each partial and transitive dependency we removed, and mapped transfers and QRIS payments as subtypes of one transaction supertype. The result is 20 tables. I then wrote the physical design as portable SQL (schema, synthetic sample data, views and business queries, plus MySQL triggers), loaded it into MariaDB and SQLite, and tried to break every rule on purpose to prove the database, not the app, enforces it.",
     highlights: [
-      "Designed one consistent Customer ID across all channels (Master Data Management)",
-      "20-table physical design with role-based access and audit logging",
-      "Business rules enforced in the database, not just the app",
-      "Linked the data model to real user flows: transfers, QRIS and activity history",
+      "20 tables in 3NF with 96 columns, 21 foreign keys, 22 CHECK rules and 19 unique keys; the ERD on this page is generated from the live schema",
+      "Business rules enforced in the database: no negative balances, amounts above zero, one Customer ID (CIF) and one NIK per customer",
+      "Triggers record failed debits instead of losing them, move money only on SUCCESS, and audit every balance change",
+      "Same SQL tested on MariaDB 10.11 and SQLite 3 with identical query results; every rule was broken on purpose and held",
+      "Views for the app’s activity history and a single-customer (Customer 360) view across all accounts",
     ],
+    caseStudy: [
+      "assets/projects/mybca-database/case-data.js",
+      "assets/projects/mybca-database/case-study.js",
+    ],
+    screenshotsTitle: "Original 2025 deliverables",
     screenshotLayout: "desktop",
     screenshots: [
-      { src: "assets/projects/mybca-database/shot-1.jpg", caption: "Advanced ERD (logical design)" },
-      { src: "assets/projects/mybca-database/shot-2.jpg", caption: "Physical design: the TRANSACTIONS table and its sample data" },
+      { src: "assets/projects/mybca-database/shot-1.jpg", caption: "The team’s advanced ERD from the 2025 report" },
+      { src: "assets/projects/mybca-database/shot-2.jpg", caption: "Physical design in Oracle APEX: the TRANSACTIONS table and its sample data" },
       { src: "assets/projects/mybca-database/shot-3.jpg", caption: "App design: transfer to a BCA account" },
       { src: "assets/projects/mybca-database/shot-4.jpg", caption: "App design: QRIS payment and activity dashboard" },
     ],
-    links: [],
+    links: [
+      { label: "Download the SQL schema", url: "assets/projects/mybca-database/sql/01_schema.sql" },
+    ],
     liveUrl: "",
     repoUrl: "",
   },
@@ -669,13 +684,13 @@ const CERTIFICATES = [
   },
   {
     id: "itechnocup-2026-finalist",
-    title: "Finalist — ITechno Cup 2026 International UI/UX Design Competition",
+    title: "Top 10 Finalist — ITechno Cup 2026 International UI/UX Design Competition",
     issuer: "HIMATIK, Politeknik Negeri Jakarta",
     date: "17 August – 29 September 2026",
     year: "2026",
     type: "Competition",
     image: "assets/certificates/itechnocup-2026-finalist.jpg",
-    summary: "Finalist with Team Excelsior for KIND, a dementia family-care platform.",
+    summary: "Top 10 Finalist with Team Excelsior for KIND, a dementia family-care platform.",
     description:
       "Awarded to Team Excelsior (Adrian Aulia Pulungan, Debora Tendean and Timothy Othniel Wahyudi) as a Finalist in the International UI/UX Design Competition at ITechno Cup 2026, organized by HIMATIK, Politeknik Negeri Jakarta.",
     significance:
@@ -687,13 +702,13 @@ const CERTIFICATES = [
   },
   {
     id: "hackfest-2026-finalist",
-    title: "Finalist — Hackfest International UI/UX Competition 2026",
+    title: "Top 8 Finalist — Hackfest International UI/UX Competition 2026",
     issuer: "Universitas Ciputra — Informatics Student Union",
     date: "18 April 2026",
     year: "2026",
     type: "Competition",
     image: "assets/certificates/hackfest-2026-finalist.jpg",
-    summary: "Finalist with Raja Gukguk KMG for SkillFuel, an AI-powered career readiness platform.",
+    summary: "Top 8 Finalist with Raja Gukguk KMG for SkillFuel, an AI-powered career readiness platform.",
     description:
       "A Certificate of Appreciation recognizing my outstanding achievement as a Finalist, with team Raja Gukguk KMG, at Hackfest: International UI/UX Competition 2026, held by Universitas Ciputra.",
     significance:
@@ -715,7 +730,7 @@ const CERTIFICATES = [
     description:
       "The official finalist announcement from the Agentic AI University Hackathon 2026 team, sent on 21 September 2026. It confirms that my team, TheBest Team, made it into the Top 40 Finalists and advanced to the Hackathon Finals & Demo Day on 31 October 2026 at BINUS University Alam Sutera. Before the finals, teams receive a month of expert mentoring from AWS and SAP (1–30 October).",
     significance:
-      "SIGAP turns drug procurement planning in Indonesian health facilities from a manual yearly estimate into a monthly, self-checking loop. Five agents detect deviations, test competing root-cause hypotheses, and prepare corrections for a pharmacist to approve. The architecture runs on AWS Bedrock AgentCore and connects to SAP S/4HANA, IBP, Joule and Ariba.",
+      "SIGAP checks a puskesmas’ yearly drug plan (RKO) before it reaches the district health office: it computes the plan with the Juknis formula, flags lines that break a verification criterion, and an agent gathers evidence for each one so the verifier reads only what needs a decision. I designed the business process; it runs on SAP AI Core, SAP BTP and Joule, with tools on AWS Lambda behind Bedrock AgentCore Gateway.",
     skills: ["Agentic AI solution design", "AWS Bedrock AgentCore", "SAP S/4HANA & IBP", "Business process analysis", "Healthcare supply chain"],
     credentialId: "",
     verifyUrl: "",
@@ -787,7 +802,7 @@ const CERTIFICATES = [
     description:
       "A Certificate of Participation for the Agentic AI Hackathon 2026 Online Workshop, part of the preparation and learning journey towards developing AI-driven solutions. The hackathon was run by Sokrates, powered by AWS, with SAP as a partner.",
     significance:
-      "What I learned in the workshop went straight into SIGAP, my team’s hackathon entry. SIGAP is a five-agent system for drug procurement planning that maps its agents onto AWS Bedrock AgentCore and SAP modules, and it reached the finals.",
+      "What I learned in the workshop went straight into SIGAP, my team’s hackathon entry. SIGAP checks a puskesmas’ yearly drug plan against the Juknis before it is sent, with an agent whose evidence tools run on AWS Lambda behind Bedrock AgentCore Gateway and a model on SAP AI Core, and it reached the finals.",
     skills: ["Agentic AI concepts", "AWS Bedrock AgentCore", "SAP enterprise modules", "Human-in-the-loop design"],
     credentialId: "",
     verifyUrl: "",

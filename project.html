@@ -4,36 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="alternate icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAACXBIWXMAADsOAAA7DgHMtqGDAAAA40lEQVRYhe2XzQ6CMBCEe+63R+GZOBt8IH94PNBHEfVMzUYkVRuMAW1MusmcIDPTbik7xngF5MAO2AMXwM0E5WqArWqYUInIylp7mlE0CNUQkfJFHOi+Le6hG0wA+S9WHtiJVkQy0/fcRcJGDRwiGmiMtfYcy4C23oy9UBSFq6pqEpRjTMOMPVSCqaUcyQB/2wI+MPZOKBkgtYB0CEmfoUsXEekqJvAzshEmYm8ka02fguINpdziUiwD65jB5Cgii3s0KyNEs+VzPiz1UPxo5Y/inolM4xJQzxlYeq5aez5se19Xvsvm+u5bGDgAAAAASUVORK5CYII=" type="image/png" sizes="32x32" />
-  <title>Project — Timothy's Portfolio</title>
+  <title>Project — Timothy Othniel Wahyudi</title>
+  <meta name="description" content="Information Systems student at BINUS University: business and systems analysis, databases and SQL, and UI/UX design." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="hermes.css?v=20261107" />
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
-  <header class="site-nav">
-    <div class="container nav-inner">
-      <a href="index.html" class="brand">Timothy's Portfolio</a>
-      <nav class="detail-links">
+  <header class="hx-nav" id="nav">
+    <div class="hx-container hx-nav-inner">
+      <a href="index.html" class="hx-brand" aria-label="Home"><span>Timothy</span><span>Wahyudi</span></a>
+      <nav class="hx-nav-links" id="navLinks" aria-label="Site">
+        <a href="index.html#about">About</a>
         <a href="index.html#projects">Projects</a>
-        <a href="index.html#contact">Contact</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#achievements">Achievements</a>
       </nav>
+      <div class="hx-nav-actions">
+        <a href="index.html#contact" class="hx-btn hx-btn--sm" data-icon="mail">Contact me</a>
+        <button class="hx-burger" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" data-icon="menu"></button>
+      </div>
     </div>
   </header>
 
-  <section class="detail-hero">
-    <div class="container" id="projectContent">
-      <!-- Filled in by js/project.js based on ?id= in the URL -->
+  <main class="hx-detail">
+    <div class="hx-container" id="projectContent"></div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="hx-footer">
+    <div class="hx-footer-mark" aria-hidden="true">Timothy</div>
+    <div class="hx-container">
+      <div class="hx-footer-badges" id="footerBadges"></div>
+      <div class="hx-footer-row">
+        <div>
+          <p>Leveraging skills, creating impact</p>
+          <p>© <span class="yr"></span>, Timothy Othniel Wahyudi</p>
+        </div>
+        <div class="right">
+          <p id="footerLinks"></p>
+          <p>Jakarta, Indonesia · <span id="footerDate"></span></p>
+        </div>
+      </div>
     </div>
-  </section>
+  </footer>
 
-  <div class="bottom-bar" id="bottomBar"></div>
-
-  <script src="data.js"></script>
-  <script src="project.js"></script>
+  <script src="data.js?v=20261107"></script>
+  <script src="hermes-icons.js?v=20261107"></script>
+  <script src="hermes-common.js?v=20261107"></script>
+  <script src="hermes-project.js?v=20261107"></script>
 </body>
 </html>
